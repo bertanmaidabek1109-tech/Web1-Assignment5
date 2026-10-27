@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 1 – Higher or Lower</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="task1.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">Assignment 5 · JavaScript</a>
+    <nav aria-label="Main navigation">
+      <a href="task1.html" aria-current="page">Task 1 · Game</a>
+      <a href="task2.html">Task 2 · Kanban</a>
+      <a href="task3.html">Task 3 · Form</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1>Higher or Lower: Gadget Prices</h1>
+  <p class="lead">Is the price of the next gadget higher or lower? Equal prices count as a right guess.</p>
+
+  <section class="panel game" id="game" aria-label="Game">
+    <div class="stats">
+      <div class="stat"><span class="stat-label">Lives</span><span class="stat-value" id="lives" aria-live="polite"></span></div>
+      <div class="stat"><span class="stat-label">Streak</span><span class="stat-value" id="streak">0</span></div>
+      <div class="stat"><span class="stat-label">Best streak</span><span class="stat-value" id="best">0</span></div>
+    </div>
+
+    <div class="cards">
+      <div class="item-card current" id="current-card">
+        <p class="item-name" id="current-name"></p>
+        <p class="item-price" id="current-price"></p>
+      </div>
+      <div class="item-card hidden-price" id="next-card">
+        <p class="item-name" id="next-name"></p>
+        <p class="item-price">?</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" id="btn-higher">▲ Higher</button>
+      <button type="button" class="btn secondary" id="btn-lower">▼ Lower</button>
+    </div>
+    <p class="hint">Keyboard: ArrowUp = higher, ArrowDown = lower.</p>
+
+    <p class="message" id="message" role="status" aria-live="polite"></p>
+    <div class="actions"><button type="button" class="btn" id="btn-restart" hidden>Play again</button></div>
+  </section>
+</main>
+</body>
+</html>

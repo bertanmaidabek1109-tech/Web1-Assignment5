@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 3 – Ticket builder</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="task3.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">Assignment 5 · JavaScript</a>
+    <nav aria-label="Main navigation">
+      <a href="task1.html">Task 1 · Game</a>
+      <a href="task2.html">Task 2 · Kanban</a>
+      <a href="task3.html" aria-current="page">Task 3 · Form</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1>Ticket Builder</h1>
+  <p class="lead">Fill in the form. The ticket preview updates while you type.</p>
+
+  <div class="two-col">
+    <section class="panel" aria-label="Booking form">
+      <div class="error-summary" id="error-summary" role="alert" tabindex="-1" hidden></div>
+
+      <form id="ticket-form">
+        <div class="field" id="field-event">
+          <label for="event">Event</label>
+          <select id="event" name="event" required aria-describedby="error-event"></select>
+          <p class="field-error" id="error-event"></p>
+        </div>
+
+        <div class="field" id="field-date">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required aria-describedby="hint-date error-date">
+          <p class="field-hint" id="hint-date"></p>
+          <p class="field-error" id="error-date"></p>
+        </div>
+
+        <div class="field" id="field-type">
+          <label for="type">Ticket type</label>
+          <select id="type" name="type" required aria-describedby="error-type"></select>
+          <p class="field-error" id="error-type"></p>
+        </div>
+
+        <div class="field" id="field-quantity">
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="10" step="1" required aria-describedby="hint-quantity error-quantity">
+          <p class="field-hint" id="hint-quantity">1 to 10 tickets. Limited by the seats left for the chosen type.</p>
+          <p class="field-error" id="error-quantity"></p>
+        </div>
+
+        <div class="field" id="field-name">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required minlength="3" maxlength="40" autocomplete="name" aria-describedby="hint-name error-name">
+          <p class="field-hint" id="hint-name">First and last name, letters only.</p>
+          <p class="field-error" id="error-name"></p>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="error-email">
+          <p class="field-error" id="error-email"></p>
+        </div>
+
+        <div class="field" id="field-promo">
+          <label for="promo">Promo code (optional)</label>
+          <input type="text" id="promo" name="promo" maxlength="20" autocomplete="off" aria-describedby="hint-promo error-promo">
+          <p class="field-hint" id="hint-promo">Try STUDENT10 or SUMMER20.</p>
+          <p class="field-error" id="error-promo"></p>
+        </div>
+
+        <button type="submit" class="btn">Book tickets</button>
+      </form>
+    </section>
+
+    <aside class="preview" aria-label="Ticket preview">
+      <div class="panel">
+        <h2>Live preview</h2>
+        <div class="ticket" aria-live="polite">
+          <h3 id="pv-event"></h3>
+          <dl>
+            <dt>Date</dt><dd id="pv-date"></dd>
+            <dt>Type</dt><dd id="pv-type"></dd>
+            <dt>Quantity</dt><dd id="pv-quantity"></dd>
+            <dt>Name</dt><dd id="pv-name"></dd>
+            <dt>Email</dt><dd id="pv-email"></dd>
+            <dt>Promo</dt><dd id="pv-promo"></dd>
+            <dt>Total</dt><dd class="total" id="pv-total"></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="panel" id="result" tabindex="-1"></div>
+    </aside>
+  </div>
+</main>
+</body>
+</html>

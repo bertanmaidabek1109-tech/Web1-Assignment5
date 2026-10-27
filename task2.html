@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 2 – Kanban board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="task2.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">Assignment 5 · JavaScript</a>
+    <nav aria-label="Main navigation">
+      <a href="task1.html">Task 1 · Game</a>
+      <a href="task2.html" aria-current="page">Task 2 · Kanban</a>
+      <a href="task3.html">Task 3 · Form</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h1>Kanban Board: Website Project</h1>
+  <p class="lead">Move cards between columns. "In progress" holds at most 3 cards.</p>
+
+  <section class="panel" aria-label="Filters">
+    <div class="toolbar">
+      <div class="field">
+        <label for="search">Search by title</label>
+        <input type="search" id="search" placeholder="e.g. banner" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="filter-tag">Tag</label>
+        <select id="filter-tag"></select>
+      </div>
+      <div class="field">
+        <label for="sort">Sort by priority</label>
+        <select id="sort">
+          <option value="none">Default (by id)</option>
+          <option value="high">High → Low</option>
+          <option value="low">Low → High</option>
+        </select>
+      </div>
+    </div>
+    <div class="progress-box">
+      <label for="progress-bar" id="progress-label">Progress</label>
+      <progress id="progress-bar" value="0" max="1"></progress>
+    </div>
+  </section>
+
+  <p class="message" id="message" role="status" aria-live="polite"></p>
+
+  <div class="board" id="board"></div>
+
+  <section class="panel" aria-label="Add card">
+    <h2>Add a card</h2>
+    <form class="add-form" id="add-form" novalidate>
+      <div class="field">
+        <label for="new-title">Title</label>
+        <input type="text" id="new-title" maxlength="40" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="new-tag">Tag</label>
+        <select id="new-tag"></select>
+      </div>
+      <div class="field">
+        <label for="new-priority">Priority</label>
+        <select id="new-priority">
+          <option value="1">Low</option>
+          <option value="2" selected>Medium</option>
+          <option value="3">High</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="new-hours">Hours</label>
+        <input type="number" id="new-hours" min="1" max="40" value="2">
+      </div>
+      <button type="submit" class="btn">Add to "To do"</button>
+    </form>
+  </section>
+</main>
+</body>
+</html>
